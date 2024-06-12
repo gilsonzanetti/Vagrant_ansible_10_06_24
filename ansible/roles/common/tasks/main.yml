@@ -1,0 +1,30 @@
+---
+-  name: update cache
+   apt:
+      update_cache: true
+
+- name: update SO
+  apt: 
+    name: "*"  
+
+- name: instalar pacotes essenciais 
+  apt:
+    name: 
+     - vim 
+     - curl
+     - telnet 
+     - unzip
+     - wget
+     - net-tools 
+     - htop
+     - nmap
+- name: Add users Company
+  user:
+    name: gilson
+    shell: /bin/bash
+    home: /home/gilson
+
+- name: Add users company for sudors
+  lineinfile:
+    dest: /etc/sudoers
+    line: "gilson  ALL=(ALL:ALL) NOPASSWD: All"     
